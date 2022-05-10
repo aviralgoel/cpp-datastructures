@@ -1,30 +1,35 @@
 #include <iostream>
 #include <linked_list.h>
 
-
-LinkedList::LinkedList () {
+template <typename T>
+LinkedList<T>::LinkedList () {
     this->m_head = NULL;
 }
 
-LinkedList::~LinkedList () {
-    Node* n = this->m_head;
+
+template <typename T>
+LinkedList<T>::~LinkedList () {
+    Node<T>* n = this->m_head;
     while (n) {
-        Node *aux = n;
+        Node<T> *aux = n;
         n = n->next;
 	delete aux;
     }
 }
 
-void LinkedList::insertAtStart(int data)
+template <typename T>
+void LinkedList<T>::insertAtStart(T data)
 {
-    Node* temp = new Node();
+    Node<T>* temp = new Node<T>();
     temp->data = data;
     temp->next = this->m_head;
     this->m_head = temp;
 }
-void LinkedList::printFromStart()
+
+template <typename T>
+void LinkedList<T>::printFromStart()
 {
-    Node* temp = this->m_head;
+    Node<T>* temp = this->m_head;
     while(temp)
     {
         std::cout << temp->data << "\t";
@@ -32,6 +37,12 @@ void LinkedList::printFromStart()
     }
     std::cout << "\n";
 }
+
+template class LinkedList<int>;
+template class LinkedList<char>;
+template class LinkedList<std::string>;
+template class LinkedList<float>;
+template class LinkedList<double>;
 
 /*
  *
