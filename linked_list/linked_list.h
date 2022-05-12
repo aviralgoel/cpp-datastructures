@@ -15,14 +15,15 @@ class LinkedList {
         LinkedList();
         ~LinkedList();
 
+        //retrieve
         void printFromStart();
+        //create
         void insertAtStart(T data);
-        void removeFromStart(T data);
-        void clearList();
-        //void remove(int data);
+        //delete
+        void removeData(T data);
+        //update
+        void updateAtIndex(T data, int index);
 
-        //Node* search(int data);
-        //void reverse();
 
     private:
         Node<T> *m_head;
