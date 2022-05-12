@@ -88,6 +88,7 @@ void LinkedList<T>::removeData(T data)
 template <typename T>
 void LinkedList<T>::updateAtIndex(T data, int index)
 {
+    //if the index is not in the range of the list, return error
     if(index > (length-1))
     {
         std::cout << "Invalid index\n";
@@ -95,10 +96,12 @@ void LinkedList<T>::updateAtIndex(T data, int index)
         return;
     }
 
+    //start from head
     Node<T>* temp = this->m_head;
     int i = 0;
     while(temp)
     {
+        // if the index is reached, change the data at that index
         if(i==index)
         {
             std::cout <<"Updating " << temp->data << " to " << data << std::endl;
