@@ -17,14 +17,17 @@ class LinkedList {
 
         void printFromStart();
         void insertAtStart(T data);
-        //void insert(int data);
+        void removeFromStart(T data);
+        void clearList();
         //void remove(int data);
-        //void print();
+
         //Node* search(int data);
         //void reverse();
 
     private:
         Node<T> *m_head;
+        Node<T> *m_tail;
+        size_t length;
 
 };
 

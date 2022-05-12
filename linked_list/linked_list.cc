@@ -1,12 +1,15 @@
 #include <iostream>
 #include <linked_list.h>
 
+// constructor
 template <typename T>
 LinkedList<T>::LinkedList () {
     this->m_head = NULL;
+    this->m_tail = NULL;
+    this->length = 0;
 }
 
-
+// deconstructor
 template <typename T>
 LinkedList<T>::~LinkedList () {
     Node<T>* n = this->m_head;
@@ -24,6 +27,11 @@ void LinkedList<T>::insertAtStart(T data)
     temp->data = data;
     temp->next = this->m_head;
     this->m_head = temp;
+    this->length++;
+    if(length == 1)
+    {
+        m_tail = m_head;
+    }
 }
 
 template <typename T>
@@ -32,7 +40,7 @@ void LinkedList<T>::printFromStart()
     Node<T>* temp = this->m_head;
     while(temp)
     {
-        std::cout << temp->data << "\t";
+        std::cout << temp->data << " ---> ";
         temp = temp->next;
     }
     std::cout << "\n";
@@ -82,15 +90,6 @@ template class LinkedList<double>;
  *         curr = next;
  *     }
  *     this->m_head = prev;
- * }
- *
- * void LinkedList::print () {
- *     Node *n = this->m_head;
- *     while (n) {
- *         std::cout << n->data << " ";
- *         n = n->next;
- *     }
- *     std::cout << std::endl;
  * }
  *
  * Node* LinkedList::search (int data) {
