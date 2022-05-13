@@ -21,14 +21,14 @@ class DoublyLinkedList {
     // user defined functions, CRUD operations
 
     //create at first, last and at given index
-    void addFirst(T val);
-    void addLast(T val);
-    void addAtIndex(T val, int index);
+    void addFirst(T val); // done
+    void addLast(T val); // done
+    void addAtIndex(T val, int index); // done
     //retrieve from list
-    T printTail();
-    T printHead();
-    void printFromFirst();
-    void printFromLast();
+    T printTail(); // done
+    T printHead(); // done
+    void printFromFirst(); // done
+    void printFromLast(); // done
     T printAtIndex(int index);
     //update list
     void updateAtIndex(int index);
