@@ -3,3 +3,4 @@
  
  1. Dynamic Arrays
  2. Linked Lists
+ 3. Doubly Linked Lists
