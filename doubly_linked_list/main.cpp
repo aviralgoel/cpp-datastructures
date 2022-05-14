@@ -5,8 +5,12 @@ using namespace std;
 
 int main()
 {
+
+    // a whole lot of testing using the implemented function
+    // it is better to comment everything here and uncomment it line by line
+    // write your own test!
     DoublyLinkedList<int> myList;
-    for(int i = 0 ; i < 1 ; i++)
+    for(int i = 0 ; i < 10 ; i++)
     {
         myList.addFirst(i);
     }
@@ -29,5 +33,21 @@ int main()
     myList.printFromFirst();
     cout << myList.sizeOfList() << endl;
     myList.addAtIndex(77, 56);
+    myList.printFromFirst();
+    myList.printAtIndex(5);
+    myList.printAtIndex(1);
+    myList.printAtIndex(10);
+    myList.printAtIndex(11);
+    myList.updateAtIndex(60, 9);
+    myList.updateAtIndex(50, 1);
+    myList.updateAtIndex(40, myList.sizeOfList());
+    myList.printFromFirst();
+    myList.deleteFirst();
+    myList.deleteLast();
+    myList.printFromFirst();
+    myList.deleteAtIndex(9);
+    myList.deleteAtIndex(2);
+    myList.printFromFirst();
+
     return 0;
 }

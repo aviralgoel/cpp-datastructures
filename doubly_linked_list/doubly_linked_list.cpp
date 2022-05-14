@@ -1,6 +1,7 @@
 #include <iostream>
 #include <doubly_linked_list.h>
 
+// constructor
 template <typename T>
 DoublyLinkedList<T>::DoublyLinkedList () {
     this->head = nullptr;
@@ -26,7 +27,7 @@ void DoublyLinkedList<T>::addFirst(T val) {
     temp->val = val;
     temp->next = head;
     temp->prev = nullptr;
-    if(length>0) // added node will
+    if(length>0)
     {
         head->prev = temp;
     }
@@ -47,7 +48,7 @@ void DoublyLinkedList<T>::addLast(T val) {
     temp->val = val;
     temp->next = nullptr;
     temp->prev = tail;
-    if(length>0) // added node will
+    if(length>0)
     {
         tail->next = temp;
     }
@@ -74,6 +75,7 @@ void DoublyLinkedList<T>::addAtIndex(T val, int index) {
     {
         trav = trav->next;
     }
+    // interpret this is trav's previous nodes' next is now temp
     trav->prev->next = temp;
     temp->prev = trav->prev;
     temp->next = trav;
@@ -82,24 +84,25 @@ void DoublyLinkedList<T>::addAtIndex(T val, int index) {
     std::cout << "Added " << temp->val << " at " << index << "\n";
 
 }
+
 template <typename T>
-int DoublyLinkedList<T>::sizeOfList()
-{
+int DoublyLinkedList<T>::sizeOfList() {
     std::cout <<"Length of List is ";
     return length;
 }
+
 template <typename T>
-T DoublyLinkedList<T>::printTail()
-{
+T DoublyLinkedList<T>::printTail() {
     std::cout << "Tail of list is ";
     return tail->val;
 }
+
 template <typename T>
-T DoublyLinkedList<T>::printHead()
-{
+T DoublyLinkedList<T>::printHead() {
     std::cout << "Head of list is ";
     return head->val;
 }
+
 template <typename T>
 void DoublyLinkedList<T>::printFromFirst() {
     Node<T> *temp = head;
@@ -111,6 +114,7 @@ void DoublyLinkedList<T>::printFromFirst() {
     std::cout << "\n";
     return;
 }
+
 template <typename T>
 void DoublyLinkedList<T>::printFromLast() {
     Node<T> *temp = tail;
@@ -122,19 +126,87 @@ void DoublyLinkedList<T>::printFromLast() {
     std::cout << "\n";
     return;
 }
-    //void addLast(T val);
-    //void addAtIndex(T val, int index);
-    //retrieve from list
-    //void printFromFirst();
-    //void printFromLast();
-    //T printAtIndex(int index);
-    //update list
-    //void updateAtIndex(int index);
-    //delete list
-    //void deleteFirst();
-    //void deleteLast();
-    //void deleteAtIndex();
 
+template <typename T>
+void DoublyLinkedList<T>::printAtIndex(int index) {
+
+    Node<T>* temp = head;
+    if(index>length)
+        std::cout << "Invalid index\n";
+    int i = 0;
+    while(temp)
+    {
+        if(i++==(index-1))
+        {
+            std::cout << "Value at index: " << index << " is " << temp->val << std::endl;
+        }
+        temp = temp->next;
+    }
+
+}
+
+template <typename T>
+void DoublyLinkedList<T>::updateAtIndex(T val ,int index) {
+    Node<T>* temp = head;
+    if(index>length)
+    {
+        std::cout << "Invalid index\n";
+        return;
+    }
+
+    int i = 0;
+    while(temp)
+    {
+        if(i++==(index-1))
+        {
+            std::cout << "Value at index: " << index << " update to " << val << std::endl;
+            temp->val = val;
+            return;
+        }
+        temp = temp->next;
+    }
+
+}
+
+template <typename T>
+void DoublyLinkedList<T>::deleteFirst() {
+
+    Node<T>* temp = head;
+    head->next->prev = nullptr;
+    head = head->next;
+    std::cout << "Deleting first node \n";
+    delete (temp);
+
+}
+
+template <typename T>
+void DoublyLinkedList<T>::deleteLast() {
+
+    Node<T>* temp = tail;
+    tail->prev->next = nullptr;
+    tail = tail->prev;
+    std::cout << "Deleting last node \n";
+    delete (temp);
+
+}
+
+template <typename T>
+void DoublyLinkedList<T>::deleteAtIndex(int index) {
+
+    Node<T>* temp = head;
+    for(int i = 0 ; i < index-1; i++)
+    {
+        temp = temp->next;
+    }
+    temp->prev->next = temp->next;
+    temp->next->prev = temp->prev;
+    std::cout << "Deleted value is  " << temp->val << std::endl;
+    delete(temp);
+
+
+
+
+}
 
 
 template class DoublyLinkedList<int>;
