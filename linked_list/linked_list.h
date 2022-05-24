@@ -1,6 +1,6 @@
 #ifndef LINKEDLIST_H_
 #define LINKEDLIST_H_
-
+#include <optional>
 template <typename T>
 class Node
 {
@@ -24,7 +24,7 @@ class LinkedList {
         //update
         void updateAtIndex(T data, int index);
         //reverse iterative
-        void reverseList();
+        void reverseList(std::optional<int> potential_value = {});
 
 
     private:

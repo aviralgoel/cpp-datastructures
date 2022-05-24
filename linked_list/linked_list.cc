@@ -1,5 +1,6 @@
 #include <iostream>
 #include <linked_list.h>
+#include <optional>
 
 // constructor -initialize the head = tail = null and length of the list  = 0
 template <typename T>
@@ -113,16 +114,25 @@ void LinkedList<T>::updateAtIndex(T data, int index)
     }
 }
 template <typename T>
-void LinkedList<T>::reverseList()
+void LinkedList<T>::reverseList(std::optional<int> potential_value)
 {
-    std::cout << "Reversing list using iterative method:\n";
-    reverseIterative(this->m_head);
-    std::cout << "Reveresed list below\n";
-    printFromStart();
-    std::cout << "Reversing same list using recursive method:\n";
-    m_head = reverseRecursive(this->m_head);
-    std::cout << "Reveresed list below\n";
-    printFromStart();
+    if(potential_value)
+    {
+        std::cout << "Reversing list using iterative method:\n";
+        reverseIterative(this->m_head);
+        std::cout << "Reveresed list below\n";
+        printFromStart();
+    }
+
+    else
+    {
+        std::cout << "Reversing same list using recursive method:\n";
+        m_head = reverseRecursive(this->m_head);
+        std::cout << "Reveresed list below\n";
+        printFromStart();
+    }
+
+
 }
 
 template <typename T>
