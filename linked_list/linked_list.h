@@ -23,9 +23,13 @@ class LinkedList {
         void removeData(T data);
         //update
         void updateAtIndex(T data, int index);
+        //reverse iterative
+        void reverseList();
 
 
     private:
+        void reverseIterative(Node<T>* head);
+        Node<T>* reverseRecursive(Node<T>* node);
         Node<T> *m_head;
         Node<T> *m_tail;
         size_t length;

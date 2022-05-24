@@ -112,6 +112,57 @@ void LinkedList<T>::updateAtIndex(T data, int index)
         temp = temp->next;
     }
 }
+template <typename T>
+void LinkedList<T>::reverseList()
+{
+    std::cout << "Reversing list using iterative method:\n";
+    reverseIterative(this->m_head);
+    std::cout << "Reveresed list below\n";
+    printFromStart();
+    std::cout << "Reversing same list using recursive method:\n";
+    m_head = reverseRecursive(this->m_head);
+    std::cout << "Reveresed list below\n";
+    printFromStart();
+}
+
+template <typename T>
+Node<T>* LinkedList<T>::reverseRecursive(Node<T>* _node)
+{
+    if(_node==nullptr || _node->next == nullptr)
+    {
+        //std::cout << "Most latest head is " << _node->data << "\n";
+        return _node;
+    }
+
+    //std::cout << "Current node passed to the recursive function is " << _node->data << "\n";
+    Node<T>* newHead = reverseRecursive(_node->next);
+    //std::cout << "After recursion we are here " << _node->data <<"\n";
+    _node->next->next = _node;
+    _node->next = nullptr;
+    return newHead;
+}
+
+template <typename T>
+void LinkedList<T>::reverseIterative(Node<T>* _head)
+{
+    //best explaination of this is given at: https://www.geeksforgeeks.org/reverse-a-linked-list/
+    Node<T>* prev = nullptr;
+    Node<T>* next = nullptr;
+    Node<T>* current = _head;
+
+    while(current!=nullptr)
+    {
+    next = current->next;
+    current->next = prev;
+    prev = current;
+    current = next;
+    }
+    m_head = prev;
+}
+
+
+
+
 template class LinkedList<int>;
 template class LinkedList<char>;
 template class LinkedList<std::string>;

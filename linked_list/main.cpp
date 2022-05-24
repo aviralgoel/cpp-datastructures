@@ -12,14 +12,16 @@ int main()
     }
 
     myList.printFromStart();
-    myList.removeData(35);
-    myList.removeData(0);
-    myList.printFromStart();
-    myList.updateAtIndex(99,0);
-    myList.updateAtIndex(88,3);
-    myList.printFromStart();
-    myList.updateAtIndex(77,7);
-    myList.printFromStart();
+    myList.reverseList();
+    //myList.printFromStart();
+//    myList.removeData(35);
+//    myList.removeData(0);
+//    myList.printFromStart();
+//    myList.updateAtIndex(99,0);
+//    myList.updateAtIndex(88,3);
+//    myList.printFromStart();
+//    myList.updateAtIndex(77,7);
+//    myList.printFromStart();
 
 
 
