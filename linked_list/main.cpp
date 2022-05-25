@@ -10,10 +10,15 @@ int main()
     {
         myList.insertAtStart(i*5);
     }
+    // pass any integer value to toggle iterative reverse approach
+    // without any parameters, the program will reverse the list using recursive approach
+    myList.reverseList(1337); // iterative
+    myList.reverseList(); // recursive
 
-    myList.printFromStart();
-    myList.reverseList();
-    //myList.printFromStart();
+    return 0;
+}
+
+//myList.printFromStart();
 //    myList.removeData(35);
 //    myList.removeData(0);
 //    myList.printFromStart();
@@ -22,8 +27,3 @@ int main()
 //    myList.printFromStart();
 //    myList.updateAtIndex(77,7);
 //    myList.printFromStart();
-
-
-
-    return 0;
-}

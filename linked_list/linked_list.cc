@@ -113,6 +113,7 @@ void LinkedList<T>::updateAtIndex(T data, int index)
         temp = temp->next;
     }
 }
+
 template <typename T>
 void LinkedList<T>::reverseList(std::optional<int> potential_value)
 {
